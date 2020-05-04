@@ -1,0 +1,8 @@
+{
+  "demo": {
+    "greeting": "Hallo {{name}}!",
+    "text": "﻿Dies ist eine einfache Applikation um die Funktionen",
+    "text-in-code": "Cambio de idioma",
+    "title": "Übersetzungs-Demo"
+  }
+}

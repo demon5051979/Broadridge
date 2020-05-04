@@ -1,0 +1,38 @@
+.m-login.m-login--2.m-login-2--skin-1 .m-login__container .m-login__form .m-login__form-action .m-login__btn.m-login__btn--primary.prosell {
+  background-color: #FED13A;
+  color: #000;
+  border: none;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+.m-login.m-login--2.m-login-2--skin-1 .m-login__container .m-login__form .m-login__form-sub .m-link.prosell {
+  color: #fff;
+}
+.m-login.m-login--2.m-login-2--skin-1 .m-login__container .m-login__form .m-login__form-sub .m-checkbox.prosell {
+  color: #fff;
+}
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__form .m-form__group .form-control.prosell {
+  color: #fff;
+  border-radius: 0;
+  border: 2px solid #fff;
+  background: transparent;
+  font-size: 1.2em;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
+}
+
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__form .m-form__group .form-control.prosell::placeholder {
+  color: #fff;
+
+}
+
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__logo.prosell {
+  margin: 5em auto 6rem auto;
+}
+
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__logo.prosell img {
+  width:100%;
+}

@@ -1,0 +1,106 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader pt-2" appunwraptag="">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+        Dashboard
+      </h3>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          <a href="/#" class="m-nav__link m-nav__link--icon">
+            <i class="m-nav__link-icon la la-home"></i>
+          </a>
+        </li>
+        <li class="m-nav__separator">-</li>
+        <li class="m-nav__item">
+          <a href="/#" class="m-nav__link">
+            <span class="m-nav__link-text">
+              Dashboard
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="m-content px-3 py-2" id="blocked_content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body">
+      <div class="row">
+        <p *ngIf="!isReady"><em>Loading...</em></p>
+        <div class="table-responsive" *ngIf="isReady">
+          <h3>Task list</h3><hr />
+
+          <div class="d-flex">
+            <div class="btn-group btn-group-toggle flex-grow-1" data-toggle="selectedFilter">
+              <label class="btn btn-light" [ngClass]="{'active': selectedStatus==1}">
+                <input type="radio" name="options" id="radio-active" autocomplete="off" [(ngModel)]="selectedStatus" [value]="1" (change)="onChangeFilter()"> Active
+              </label>
+              <label class="btn btn-light" [ngClass]="{'active': selectedStatus==2}">
+                <input type="radio" name="options" id="radio-completed" autocomplete="off" [(ngModel)]="selectedStatus" [value]="2" (change)="onChangeFilter()"> Completed
+              </label>
+              <label class="btn btn-light" [ngClass]="{'active': selectedStatus==-1}">
+                <input type="radio" name="options" id="radio-all" autocomplete="off" [(ngModel)]="selectedStatus" [value]="-1" (change)="onChangeFilter()"> All
+              </label>
+            </div>
+            <div class="flex-grow-0">
+              <button type="button" class="btn btn-light" (click)="loadTasks()">Refresh</button>
+            </div>
+          </div>
+          <div detect-scroll class="scroll-box" (onScroll)="onScroll($event)">
+            <table class='table table-bordered table-hover mt-2' #dashboardTable>
+              <thead>
+                <tr class="table-active">
+                  <th>Name</th>
+                  <th>Priority</th>
+                  <th>Added</th>
+                  <th>Time to complete</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let task of tasks" (click)="selectTask(task)">                
+                  <td>{{ task.name }}</td>
+                  <td>{{ task.priority }}</td>
+                  <td>{{ formatDate(task.createDate) }}</td>
+                  <td>{{ task.timeToCompleteString }}</td>             
+                  <td>
+                      <button *ngIf="task.statusId!=3"class="btn btn-info mx-1" [routerLink]="[ '/edit',task.id]">edit</button>
+                      <button *ngIf="task.statusId==1"class="btn btn-info mx-1" (click)="completeTask(task.id)">complete</button>
+                      <button *ngIf="task.statusId!=3"class="btn btn-warning mx-1" (click)="removeTask(task.id)">remove</button>
+                      <button *ngIf="task.statusId==3"class="btn btn-light disabled mx-1">removed</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedTask" class="m-content px-3 py-0" id="blocked-detail-content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body pt-3 pb-1">
+      <fieldset class="details-border">
+      <legend class="details-border font-weight-bold">Task details</legend>
+        <dl class="row p-2 m-0">
+          <dt class="col-sm-2">Name</dt>
+          <dd class="col-sm-10">{{ selectedTask.name }}</dd>
+          <dt class="col-sm-2">Description</dt>
+          <dd class="col-sm-10" [innerHTML]="selectedTask.description"></dd>
+          <dt class="col-sm-2">Status</dt>
+          <dd class="col-sm-10">{{ selectedTask.statusName }}</dd>
+          <dt class="col-sm-2">Priority</dt>
+          <dd class="col-sm-10">{{ selectedTask.priority }}</dd>
+          <dt class="col-sm-2">Added</dt>
+          <dd class="col-sm-10">{{ formatDate(selectedTask.createDate) }}</dd>
+        </dl>       
+      </fieldset>
+    </div>
+  </div>
+</div>
+      
+

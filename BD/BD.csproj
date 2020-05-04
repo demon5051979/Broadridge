@@ -1,0 +1,272 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+<ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.9.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />  
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MsgReader" Version="3.7.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="SyrianBallaS.AutoMapper.Extensions.Microsoft.DependencyInjection.Signed" Version="3.2.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\login\**" />
+    <Compile Remove="ClientApp\src\app\nav-menu\**" />
+    <Compile Remove="ClientApp\src\app\NewFolder\**" />
+    <Compile Remove="ClientApp\src\app\reporting\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\account-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\activity-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\application-detail\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\import-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\materials-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\newsfeed\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\role-manager\**" />
+    <Compile Remove="ClientApp\src\app\theme\pages\default\team-manager\**" />
+    <Compile Remove="ClientApp\src\app\translate\**" />
+    <Compile Remove="ClientApp\src\loading\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Resources\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="SharePointDLLs\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\login\**" />
+    <Content Remove="ClientApp\src\app\nav-menu\**" />
+    <Content Remove="ClientApp\src\app\NewFolder\**" />
+    <Content Remove="ClientApp\src\app\reporting\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\account-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\activity-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\application-detail\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\import-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\materials-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\newsfeed\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\role-manager\**" />
+    <Content Remove="ClientApp\src\app\theme\pages\default\team-manager\**" />
+    <Content Remove="ClientApp\src\app\translate\**" />
+    <Content Remove="ClientApp\src\loading\**" />
+    <Content Remove="Configuration\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="Resources\**" />
+    <Content Remove="Services\**" />
+    <Content Remove="SharePointDLLs\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\login\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\nav-menu\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\NewFolder\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\reporting\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\account-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\activity-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\application-detail\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\import-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\materials-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\newsfeed\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\role-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\theme\pages\default\team-manager\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\translate\**" />
+    <EmbeddedResource Remove="ClientApp\src\loading\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="SharePointDLLs\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\login\**" />
+    <None Remove="ClientApp\src\app\nav-menu\**" />
+    <None Remove="ClientApp\src\app\NewFolder\**" />
+    <None Remove="ClientApp\src\app\reporting\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\account-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\import-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\materials-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\role-manager\**" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\**" />
+    <None Remove="ClientApp\src\app\translate\**" />
+    <None Remove="ClientApp\src\loading\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Resources\**" />
+    <None Remove="Services\**" />
+    <None Remove="SharePointDLLs\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets.cs" />
+    <Compile Remove="Controllers\CallsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.Production.json" />
+    <Content Remove="wwwroot\assigned_call_template.html" />
+    <Content Remove="wwwroot\canceled.msg" />
+    <Content Remove="wwwroot\cancelled_msg.html" />
+    <Content Remove="wwwroot\cancelled_template.html" />
+    <Content Remove="wwwroot\favicon.ico" />
+    <Content Remove="wwwroot\IISlogo128px.png" />
+    <Content Remove="wwwroot\IISlogo230px.png" />
+    <Content Remove="wwwroot\IISlogoICON-1.png" />
+    <Content Remove="wwwroot\IISYSTEMSlogoWHT150px.png" />
+    <Content Remove="wwwroot\inspired.jpg" />
+    <Content Remove="wwwroot\inspired_vertical_line.jpg" />
+    <Content Remove="wwwroot\new_call_template.html" />
+    <Content Remove="wwwroot\resolved_call_template.html" />
+    <Content Remove="wwwroot\test_file.msg" />
+    <Content Remove="wwwroot\Test_SharePoint_Document.docx" />
+    <Content Remove="wwwroot\water-lily-3784022__340.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\app-routing-module.ts" />
+    <None Remove="ClientApp\src\app\login\index.js" />
+    <None Remove="ClientApp\src\app\login\index.js.map" />
+    <None Remove="ClientApp\src\app\login\index.ts" />
+    <None Remove="ClientApp\src\app\login\login.component.html" />
+    <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.css" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.html" />
+    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+    <None Remove="ClientApp\src\app\reporting\reporting.component.css" />
+    <None Remove="ClientApp\src\app\reporting\reporting.component.html" />
+    <None Remove="ClientApp\src\app\reporting\reporting.component.spec.ts" />
+    <None Remove="ClientApp\src\app\reporting\reporting.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\account-manager\account-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\account-manager\account-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\account-manager\account-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-manager\activity-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-manager\activity-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-manager\activity-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\activity-submits-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\activity-submits-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\activity-submits-manager.css" />
+    <None Remove="ClientApp\src\app\theme\pages\default\activity-submits-manager\activity-submits-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\application-detail.component.css" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\application-detail.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\application-detail.component.spec.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\application-detail.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\application-detail\application-detail.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\dashboard\dashboard.component.spec.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\import-manager\import-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\import-manager\import-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\import-manager\import-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\import-manager\services\import-endpoint.service.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\index\countries.json" />
+    <None Remove="ClientApp\src\app\theme\pages\default\materials-manager\materials-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\materials-manager\materials-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\materials-manager\materials-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\models\NewsFeedModel.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\newsfeed.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\newsfeed.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\newsfeed.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\newsfeed\services\newsfeed-endpoint.service.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\role-manager\role-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\role-manager\role-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\role-manager\role-manager.module.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\models\team.model.js" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\models\team.model.js.map" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\models\team.model.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\services\team-endpoint.service.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\team-manager.component.html" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\team-manager.component.ts" />
+    <None Remove="ClientApp\src\app\theme\pages\default\team-manager\team-manager.module.ts" />
+    <None Remove="ClientApp\src\app\translate\translate.component.css" />
+    <None Remove="ClientApp\src\app\translate\translate.component.html" />
+    <None Remove="ClientApp\src\app\translate\translate.component.spec.ts" />
+    <None Remove="ClientApp\src\app\translate\translate.component.ts" />
+    <None Remove="ClientApp\src\app\_guards\exit.guard.ts" />
+    <None Remove="ClientApp\src\app\_models\appComment.ts" />
+    <None Remove="ClientApp\src\app\_models\childComment.ts" />
+    <None Remove="ClientApp\src\app\_models\grantDisbursementSchedules.ts" />
+    <None Remove="ClientApp\src\app\_models\risk.ts" />
+    <None Remove="ClientApp\src\app\_services\validation.service" />
+    <None Remove="ClientApp\src\app\_services\validation.service.ts" />
+    <None Remove="ClientApp\src\loading\loading.component.css" />
+    <None Remove="ClientApp\src\loading\loading.component.html" />
+    <None Remove="ClientApp\src\loading\loading.component.spec.ts" />
+    <None Remove="ClientApp\src\loading\loading.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\app-routing-module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_guards\exit.guard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\childComment.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\grantDisbursementSchedules.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\appComment.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\risk.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\validation.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\assets\fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BD.Common\BD.Common.csproj" />
+    <ProjectReference Include="..\BD.Core\BD.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

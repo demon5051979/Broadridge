@@ -1,0 +1,117 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+        Task
+      </h3>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          <a href="/#" class="m-nav__link m-nav__link--icon">
+            <i class="m-nav__link-icon la la-home"></i>
+          </a>
+        </li>
+        <li class="m-nav__separator">-</li>
+        <li class="m-nav__item">
+          <a href="/#" class="m-nav__link">
+            <span class="m-nav__link-text">
+              Task
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+
+<div class="m-content">
+  <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body">      
+      <div class="col-xs-12 text-center ">
+        <h4 *ngIf="!isEdit">Create task</h4>
+        <h4 *ngIf="isEdit">Edit task</h4>
+        <hr />
+      </div>
+      <p *ngIf="!isReady"><em>Loading...</em></p>      
+      <div *ngIf="isReady" class="form-group m-form__group">
+        <form #taskForm="ngForm" name="form" class="m-form  m-form--label-align-right" (ngSubmit)="onSubmit(taskForm)" novalidate>
+          <div class="m-portlet__body">
+
+            <!-- TASK FIELDS -->
+            <div class="form-group">
+              <label class="col-12 marker">
+                <b>Name<span>*</span></b>
+              </label>
+              <div class="col-12">
+                <input class="form-control m-input" name="taskname" [(ngModel)]="task.name" #_taskname="ngModel" required/>
+                <div *ngIf="_taskname.invalid && _taskname.errors?.required && (_taskname.dirty || _taskname.touched || taskForm.submitted)"
+                     class="alert alert-danger">
+                  Task name is required
+                </div>
+                <span class="control-help">
+                  Please enter task name
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-12 marker">
+                <b>Description</b>
+              </label>
+              <div class="col-12">
+                <!-- <input class="form-control m-input" [(ngModel)]="task.description"/> -->
+                <angular-editor [config]="editorConfig" name="description" [(ngModel)]="task.description"></angular-editor>
+                <span class="control-help">
+                  Please enter task description
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-12 marker">
+                <b>Priority<span>*</span></b>
+              </label>
+              <div class="col-2">
+                <input class="form-control m-input" name="priority" [(ngModel)]="task.priority" #_priority="ngModel" required type="number" min="1" step="1"/>
+                <div *ngIf="_priority.invalid && _priority.errors?.required && (_priority.dirty || _priority.touched || taskForm.submitted)"
+                     class="alert alert-danger">
+                  Task priority is required
+                </div>
+                <span class="control-help">
+                  Please enter task priority
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-12 marker">
+                <b>Deadline<span>*</span></b>
+              </label>
+              <div class="m-input pl-3">
+                <ngb-datepicker #d name="deadline" [(ngModel)]="selectedDate" #_deadline="ngModel" required [startDate]="selectedDate"></ngb-datepicker>
+                <div *ngIf="_deadline.invalid && _deadline.errors?.required && (_deadline.dirty || _deadline.touched || taskForm.submitted)"
+                    class="alert alert-danger">
+                  Task deadline is required
+                </div>
+              </div>
+              <span class="control-help pl-3">
+                Please enter task deadline
+              </span>
+            </div>
+
+            <div class="float-right">
+              <button type="submit" class="btn btn-primary mr-1 ">
+                Save task
+              </button>
+            </div>
+          </div>  
+        </form>
+        <br />
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
+
+   
